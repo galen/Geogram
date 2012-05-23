@@ -7,7 +7,7 @@ error_reporting( E_ALL );
 require( 'system/config.php' );
 require( DIR_LIB . '/Slim/Slim/Slim.php' );
 
-require( DIR_LIB . '/SPLClassLoader.php' );
+require( DIR_LIB . '/SplClassLoader/SplClassLoader.php' );
 
 $instagram_loader = new SplClassLoader( 'Instagram', DIR_LIB . '/PHP-Instagram-API' );
 $instagram_loader->register();
