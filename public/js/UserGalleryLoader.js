@@ -27,16 +27,6 @@ var UserGalleryLoader = GalleryLoaderAbstract.extend( function ( username ) {
         this.renderView( data.photos );
     },
 
-    getPercentComplete: function(){
-        if( this.getTotalPhotos() === 0 ) {
-            return null;
-        }
-        if ( this.complete ) {
-            return 100;
-        }
-        return parseInt( ( ( this.getLoadedPhotoCount() / this.getTotalPhotos() ) * 100 ) );
-    },
-
     loadAll: function( async ){
         async = typeof async == 'undefined' ? true : async;
         this.load( null, async );

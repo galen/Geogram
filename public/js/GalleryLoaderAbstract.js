@@ -14,9 +14,7 @@ var GalleryLoaderAbstract = klass(function(){
     this.done_loading = false;
     this.logging = false;
 
-    this.loaded_photo_count = 0;
     this.onload_functions = [];
-    this.photo_filters = [];
 
     this.percent_loaded = 0;
 
@@ -26,15 +24,6 @@ var GalleryLoaderAbstract = klass(function(){
 
 })
 .methods({
-
-    filterPhotos: function( photos ){
-        filtered_photos = photos;
-        t = this;
-        for( var i in this.photo_filters ) {
-            filtered_photos = this.photo_filters[i](filtered_photos);
-        }
-        return filtered_photos;
-    },
 
     addOnloadFunction: function( $function ){
         this.onload_functions.push( $function );
@@ -71,7 +60,6 @@ var GalleryLoaderAbstract = klass(function(){
     deleteDuplicatesAndAddPhotos: function( data ){
         t = this;
         uniques = [];
-        this.loaded_photo_count += data.photos.length + data.unlocated;
         $.each(data.photos, function(i,v){
             if( $.inArray( v.id, t.photo_ids ) == -1 ){
                 uniques.push( v );
@@ -82,8 +70,8 @@ var GalleryLoaderAbstract = klass(function(){
         return uniques;
     },
 
-    getLoadedPhotoCount: function(){
-        return this.loaded_photo_count;
+    getTotalLoadedPhotoCount: function(){
+        return this.photos.length;
     },
 
     load: function( number_to_load, async ){
@@ -133,9 +121,7 @@ var GalleryLoaderAbstract = klass(function(){
     },
 
     renderView: function( photos ) {
-        filtered_photos = [];
-        filtered_photos = this.filterPhotos( photos );
-        $.tmpl( this.gallery_template, filtered_photos ).appendTo( this.gallery_id );
+        $.tmpl( this.gallery_template, photos ).appendTo( this.gallery_id );
     }
 
 });
