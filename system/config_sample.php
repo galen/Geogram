@@ -8,16 +8,17 @@ define( 'DIR_LIB',                      DIR_SYSTEM . '/lib' );
 
 define( 'INSTAGRAM_CLIENT_ID',          '' );
 define( 'INSTAGRAM_CLIENT_SECRET',      '' );
-define( 'INSTAGRAM_REDIRECT_URI',       '' );
+define( 'INSTAGRAM_REDIRECT_URI',       '/auth/' );
 
+define( 'INSTAGRAM_MIN_DISTANCE',       5 );
 define( 'INSTAGRAM_MAX_DISTANCE',       5000 );
-define( 'INSTAGRAM_DEFAULT_DISTANCE',   500 );
+define( 'INSTAGRAM_DEFAULT_DISTANCE',   1000 );
 
 $config = array(
-	'auth'	=> array(
-	    'client_id'         => INSTAGRAM_CLIENT_ID,
-    	'client_secret'     => INSTAGRAM_CLIENT_SECRET,
-	    'redirect_uri'      => INSTAGRAM_REDIRECT_URI,
-    	'scope'             => array( 'likes', 'comments', 'relationships' )
+    'auth'  => array(
+        'client_id'         => INSTAGRAM_CLIENT_ID,
+        'client_secret'     => INSTAGRAM_CLIENT_SECRET,
+        'redirect_uri'      => INSTAGRAM_REDIRECT_URI,
+        'scope'             => array( 'likes', 'comments', 'relationships' )
     )
 );
