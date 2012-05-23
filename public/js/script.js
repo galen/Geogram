@@ -59,6 +59,14 @@ switch( $("body").attr( "id" ) ) {
         gallery_loader.addOnloadFunction( function (){ if ( t.isDoneLoading() ) { $("#loader").fadeOut(); } } );
         gallery_loader.addOnloadFunction( function (){ update_map( t.current_photos ); } );
         gallery_loader.enableLogging();
+        gallery_loader.load(20);
+        break;
+
+    case 'user_all':
+        gallery_loader = new UserGalleryLoader( username );
+        gallery_loader.addOnloadFunction( function (){ if ( t.isDoneLoading() ) { $("#loader").fadeOut(); } } );
+        gallery_loader.addOnloadFunction( function (){ update_map( t.current_photos ); } );
+        gallery_loader.enableLogging();
         gallery_loader.loadAll();
         break;
 

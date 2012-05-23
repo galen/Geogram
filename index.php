@@ -16,7 +16,6 @@ $app = new Slim;
 
 $app->get('/', function () {
     $page = 'home';
-    $text_page = true;
     require( DIR_CONTROLLERS . '/home.php' );
 });
 
@@ -27,15 +26,11 @@ $app->get('/location/me/?', function () use ( $config, $app )  {
 
 $app->get('/location/:location(/:distance(/:location_name/))/?', function ( $location, $distance ) use ( $config, $app )  {
     $page = 'location';
-    $l = explode( ",", $location );
-    $lat = $l[0];
-    $lng = $l[1];
     require( DIR_CONTROLLERS . '/location.php' );
 });
 
 $app->get('/search/?', function () use ( $config, $app )  {
 	$page = 'search';
-    $text_page = true;
     require( DIR_CONTROLLERS . '/search.php' );
 });
 
@@ -50,8 +45,8 @@ $app->get('/auth/?', function () use( $config ) {
 
 $app->get('/user/:username(/all)/?', function ( $username ) use ( $config, $app ) {
     $page = 'user';
-    if( strpos( $app->request()->getResourceUri(), 'all' ) ) {
-        $load_all = true;
+    $url_parts = explode( '/', trim( $app->request()->getResourceUri(), '/' ) );
+    if( end( $url_parts ) == 'all' ) {
         $page = 'user_all';
     }
     require( DIR_CONTROLLERS . '/user.php' );
@@ -59,8 +54,8 @@ $app->get('/user/:username(/all)/?', function ( $username ) use ( $config, $app 
 
 $app->get('/me(/all)/?', function () use ( $config, $app ) {
 	$page = 'user';
-    if( strpos( $app->request()->getResourceUri(), 'all' ) ) {
-        $load_all = true;
+    $url_parts = explode( '/', trim( $app->request()->getResourceUri(), '/' ) );
+    if( end( $url_parts ) == 'all' ) {
         $page = 'user_all';
     }
     require( DIR_CONTROLLERS . '/me.php' );

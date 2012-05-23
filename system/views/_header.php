@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Geogram!</title>
+  <title>Geogram<?php if( isset( $title_append ) ): ?> - <?php echo $title_append ?><?php endif; ?></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/public/css/style.css">

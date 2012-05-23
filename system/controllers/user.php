@@ -7,7 +7,8 @@ if ( !isset( $_SESSION['instagram_access_token'] ) ) {
 
 $instagram = new Instagram\Instagram;
 $instagram->setAccessToken( $_SESSION['instagram_access_token'] );
-$username = $instagram->getUserByUsername( $username )->getUsername();
+//$username = $instagram->getUserByUsername( $username )->getUsername();
+$title_append = $username;
 
 require( DIR_VIEWS . '/_header.php' );
 require( DIR_VIEWS . '/user.php' );
