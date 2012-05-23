@@ -8,7 +8,7 @@ define( 'DIR_LIB',                      DIR_SYSTEM . '/lib' );
 
 define( 'INSTAGRAM_CLIENT_ID',          '2bf09b7dbb814f22982a5f4a827dc547' );
 define( 'INSTAGRAM_CLIENT_SECRET',      '83054d09115240fd9fafa21860f07af8' );
-define( 'INSTAGRAM_REDIRECT_URI',       'http://sittin.dyndns.org:8888/auth/' );
+define( 'INSTAGRAM_REDIRECT_URI',       'http://www.geogram.me/auth/' );
 
 define( 'INSTAGRAM_MIN_DISTANCE',       5 );
 define( 'INSTAGRAM_MAX_DISTANCE',       5000 );
