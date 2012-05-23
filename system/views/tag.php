@@ -1,0 +1,1 @@
+<?php require( DIR_VIEWS . '/medialist_wrapper.php' ) ?>

@@ -1,0 +1,1 @@
+<p>I dont have anything to say here right now. Pick <a href="/search">Search</a>, or <a href="/me">My Photos</a> in the navigation.</p>

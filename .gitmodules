@@ -1,0 +1,12 @@
+[submodule "system/lib/SplClassLoader"]
+	path = system/lib/SplClassLoader
+	url = git@github.com:galen/SplClassLoader.git
+[submodule "system/lib/PHP-Instagram-API"]
+	path = system/lib/PHP-Instagram-API
+	url = git@github.com:galen/PHP-Instagram-API.git
+[submodule "system/lib/PHPGoogleMaps"]
+	path = system/lib/PHPGoogleMaps
+	url = git@github.com:galen/PHPGoogleMaps.git
+[submodule "system/lib/Slim"]
+	path = system/lib/Slim
+	url = https://github.com/codeguy/Slim.git
