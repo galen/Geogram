@@ -59,12 +59,12 @@ switch( $("body").attr( "id" ) ) {
         gallery_loader.addOnloadFunction( function (){ if ( t.isDoneLoading() ) { $("#loader").fadeOut(); } } );
         gallery_loader.addOnloadFunction( function (){ update_map( t.current_photos ); } );
         gallery_loader.enableLogging();
-        gallery_loader.load(20);
+        gallery_loader.load(photo_load_num);
         break;
 
     case 'user_all':
         gallery_loader = new UserGalleryLoader( username );
-        gallery_loader.addOnloadFunction( function (){ if ( t.getTotalLoadedPhotoCount() > 20 ) { $("#loader").fadeOut(); } } );
+        gallery_loader.addOnloadFunction( function (){ if ( t.getTotalLoadedPhotoCount() >= photo_load_num ) { $("#loader").fadeOut(); } } );
         gallery_loader.addOnloadFunction( function (){ update_map( t.current_photos ); } );
         gallery_loader.enableLogging();
         gallery_loader.loadAll();
@@ -75,7 +75,7 @@ switch( $("body").attr( "id" ) ) {
         gallery_loader.addOnloadFunction( function (){ if ( t.isDoneLoading() ) { $("#loader").fadeOut(); } } );
         gallery_loader.addOnloadFunction( function (){ update_map( t.current_photos ); } );
         gallery_loader.enableLogging();
-        gallery_loader.load(20);
+        gallery_loader.load(photo_load_num);
         break;
 
     case 'location_me':
@@ -84,7 +84,7 @@ switch( $("body").attr( "id" ) ) {
             gallery_loader.addOnloadFunction( function (){ if ( t.isDoneLoading() ) { $("#loader").fadeOut(); } } );
             gallery_loader.addOnloadFunction( function (){ update_map( t.current_photos ); } );
             gallery_loader.enableLogging();
-            gallery_loader.load(20);
+            gallery_loader.load(photo_load_num);
         };
         geolocation_error = function(){
             alert( 'Error finding your location' );
@@ -101,7 +101,7 @@ switch( $("body").attr( "id" ) ) {
         gallery_loader.addOnloadFunction( function (){ $("#loader").fadeOut(); } );
         gallery_loader.addOnloadFunction( function (){ update_map( t.current_photos ); } );
         gallery_loader.enableLogging();
-        gallery_loader.load(20);
+        gallery_loader.load(photo_load_num);
         break;
 
 }
@@ -114,7 +114,7 @@ $("#medialist_container").scroll(function(){
         gallery_loader.log("! Scrolled to the bottom. Loading more photos.");
         gallery_loader.addOnloadFunction( function (){ update_map( t.current_photos ); } );
         gallery_loader.addOnloadFunction( function (){ $("#status").html( "Loading..." ); } );
-        gallery_loader.load(20);
+        gallery_loader.load(photo_load_num);
     }
 });
 

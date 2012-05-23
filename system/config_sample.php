@@ -13,6 +13,7 @@ define( 'INSTAGRAM_REDIRECT_URI',       '/auth/' );
 define( 'INSTAGRAM_MIN_DISTANCE',       5 );
 define( 'INSTAGRAM_MAX_DISTANCE',       5000 );
 define( 'INSTAGRAM_DEFAULT_DISTANCE',   1000 );
+define( 'INSTAGRAM_PHOTO_LOAD_NUMBER',  20 );
 
 $config = array(
     'auth'  => array(

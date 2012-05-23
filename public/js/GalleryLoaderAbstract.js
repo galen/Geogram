@@ -78,7 +78,6 @@ var GalleryLoaderAbstract = klass(function(){
         if ( this.current_number_photos_to_load === null ) {
             this.current_number_photos_to_load = number_to_load;
         }
-        number_to_load = typeof number_to_load == 'undefined' ? 20 : number_to_load;
         async = typeof async == 'undefined' ? true : async;
         this.done_loading = false;
         var t = this;
