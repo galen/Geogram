@@ -3,6 +3,9 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . index.php [L]
+  RewriteCond %{HTTP_HOST} ^www.geogram.me$ [NC]
+  RewriteRule ^(.*)$ http://geogram.me/$1 [R=301,L]
+
 </IfModule>
 
 # Turn off magic quotes
