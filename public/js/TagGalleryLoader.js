@@ -1,6 +1,6 @@
 var TagGalleryLoader = GalleryLoaderAbstract.extend( function ( tag ) {
     this.tag = tag;
-    this.api_url = "/api?method=tag&tag=" + this.tag + "&max_id=";
+    this.api_url = "/api/?method=tag&tag=" + this.tag + "&max_id=";
     this.max_id = null;
 })
 .methods({

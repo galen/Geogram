@@ -1,7 +1,7 @@
 var MediaSearchGalleryLoader = GalleryLoaderAbstract.extend( function ( lat, lng, distance ) {
     this.lat = lat;
     this.lng = lng;
-    this.api_url = "/api?method=media_search&lat=" + this.lat + "&lng=" + this.lng + "&distance=" + distance + "&max_timestamp=";
+    this.api_url = "/api/?method=media_search&lat=" + this.lat + "&lng=" + this.lng + "&distance=" + distance + "&max_timestamp=";
     this.max_timestamp = null;
 })
 .methods({

@@ -1,2 +1,2 @@
-<h1>Invalid Page...</h1>
-<p>This page doesn't exist.</p>
+<h1>Error</h1>
+<p>An unknown error has occurred.</p>

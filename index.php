@@ -66,6 +66,10 @@ $app->get('/api(/:method)/', function () {
 });
 
 $app->notFound( function () use ( $config, $app ) {
+    require( DIR_CONTROLLERS . '/error_404.php' );
+});
+
+$app->error( function ( Exception $e ) use ( $config, $app ) {
     require( DIR_CONTROLLERS . '/error.php' );
 });
 

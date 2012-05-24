@@ -1,6 +1,6 @@
 var UserGalleryLoader = GalleryLoaderAbstract.extend( function ( username ) {
     this.username = username;
-    this.api_url = "/api?method=user&username=" + this.username + "&max_id=";
+    this.api_url = "/api/?method=user&username=" + this.username + "&max_id=";
     this.max_id = null;
     this.tag = null;
     this.total_photos = 0;
