@@ -12,6 +12,11 @@ switch( $("body").attr( "id" ) ) {
             max: location_search_distance_max,
             slide: function( event, ui ) {
                 $("#distance_value").html( ui.value );
+            },
+            stop: function( event, ui ){
+                $("#location_chooser li a").each(function(){
+                    $(this).attr('href', $(this).data('tpl').replace('##distance##', ui.value ) );
+                });
             }
         });
 
@@ -27,7 +32,7 @@ switch( $("body").attr( "id" ) ) {
         search_options['tag'].template = "<li><a href=\"/tag/${tag}/\">${tag}</a></li>";
         search_options['location'].api_url = '/api/?method=geocode&location=';
         search_options['location'].error = 'Please enter a location';
-        search_options['location'].template = "<li><a href=\"/location/${lat},${lng}/${distance}/${location_encoded}/\">${location}</a></li>";
+        search_options['location'].template = "<li><a data-tpl=\"/location/${lat},${lng}/##distance##/${location_encoded}/\" href=\"/location/${lat},${lng}/${distance}/${location_encoded}/\">${location}</a></li>";
         $("#search_options form").submit(function(){
             var search_type = $(this).data("search-type");
             if ( $("#search_" + search_type +"_text").val().trim() === '' ) {
