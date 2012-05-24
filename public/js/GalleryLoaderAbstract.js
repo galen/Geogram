@@ -89,7 +89,6 @@ var GalleryLoaderAbstract = klass(function(){
                 success: function(data){
                     data.photos = t.deleteDuplicatesAndAddPhotos( data );
                     t.current_photos = data.photos;
-                    t.preloadImages( data.photos );
                     t.handleData(data);
                     t.log( "+ Added " + data.photos.length + " photos" );
                 }
@@ -109,14 +108,6 @@ var GalleryLoaderAbstract = klass(function(){
                 }
             }
         );
-    },
-
-    preloadImages: function( photos ) {
-        preloaded_images = [];
-        for( var i in photos ){
-            preloaded_images[i] = new Image();
-            preloaded_images[i].src = photos[i].thumbnail;
-        }
     },
 
     renderView: function( photos ) {

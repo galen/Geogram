@@ -230,6 +230,9 @@ h3 {
 #medialist a {
     display:block;
     border: 5px solid #eee;
+    width:150px;
+    background: #eee;
+    height:150px;
 }
 
 #medialist img {
