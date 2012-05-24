@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/public/css/lightbox.css">
   <link rel="stylesheet" href="/public/css/jquery-ui.css">
 </head>
-<body id="<?php echo $page ?>"<?php if( isset( $text_page ) ): ?> class="text_page"<?php endif; ?>>
+<body<?php if( isset( $page ) ): ?> id="<?php echo $page ?>"<?php endif; ?><?php if( isset( $text_page ) ): ?> class="text_page"<?php endif; ?>>
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
 <div id="header">
