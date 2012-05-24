@@ -53,7 +53,6 @@ foreach( $media as $m_i => $m ) {
         'lng'               => $m->getLocation()->getLng(),
         'photo'             => $m->getStandardRes()->url,
         'id'                => $m->getId(),
-        'marker_id'         => $m_i,
         'unique_id'         => md5( $m->getLink() )
     );
 }

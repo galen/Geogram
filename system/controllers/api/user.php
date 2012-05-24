@@ -50,7 +50,7 @@ foreach( $media as $m_i => $m ) {
             'tags'              => $m->getTags()->toArray(),
 	        'photo'             => $m->getStandardRes()->url,
 	        'id'                => $m->getId(),
-	        'marker_id'         => $m_i
+            'unique_id'         => md5( $m->getLink() )
 	    );
 	}
     else {

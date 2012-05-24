@@ -1,20 +1,5 @@
 <?php
 
-$gmap_loader = new SplClassLoader( 'PHPGoogleMaps', DIR_LIB );
-$gmap_loader->register();
-
-//$lat = floatval( $_GET['lat'] );
-//$lng = floatval( $_GET['lng'] );
-
-if ( !isset( $_GET['distance'] ) ) {
-    $distance = INSTAGRAM_DEFAULT_DISTANCE;
-}
-else {
-    $distance = intval( $_GET['distance'] ) > INSTAGRAM_MAX_DISTANCE || intval( $_GET['distance'] ) < 0
-        ? INSTAGRAM_DEFAULT_DISTANCE
-        : intval( $_GET['distance'] );
-}
-
 $max_id = isset( $_GET['max_id'] ) ? $_GET['max_id'] : null;
 
 $instagram = new Instagram\Instagram;
@@ -32,7 +17,6 @@ if ( !$tag_media_count ) {
 }
 
 $params = array(
-   'distance'       => $distance,
    'max_id'         => $max_id
 );
 
@@ -43,7 +27,7 @@ $output['unlocated'] = 0;
 $output['photos'] = array();
 $output['total_photos'] = $tag->getMediaCount();
 foreach( $media as $m_i => $m ) {
-    //$m_latlng = new \PHPGoogleMaps\Core\LatLng( $m->getLocation()->getLat(), $m->getLocation()->getLng() );
+
     if ( $m->hasLocation() ) {
         $caption = $m->getCaption();
         $output['photos'][] = array(
@@ -56,7 +40,7 @@ foreach( $media as $m_i => $m ) {
             'lng'               => $m->getLocation()->getLng(),
             'photo'             => $m->getStandardRes()->url,
             'id'                => $m->getId(),
-            'marker_id'         => $m_i
+            'unique_id'         => md5( $m->getLink() )
         );
     }
     else {

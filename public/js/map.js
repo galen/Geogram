@@ -21,7 +21,6 @@ function update_map( photos ){
         google.maps.event.addListener( map_markers[id], 'mouseout', function(){ $( this.photo ).removeClass('mapover') } );
         bounds.extend( map_markers[id].position );
         $( '#' + id ).mouseover(function(){
-            alert($(this).attr("id"));
             map_markers[$(this).attr("id")].setAnimation(google.maps.Animation.BOUNCE);
         });
         $( '#' + id ).mouseout(function(){
