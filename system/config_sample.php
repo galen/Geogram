@@ -8,12 +8,14 @@ define( 'DIR_LIB',                      DIR_SYSTEM . '/lib' );
 
 define( 'INSTAGRAM_CLIENT_ID',          '' );
 define( 'INSTAGRAM_CLIENT_SECRET',      '' );
-define( 'INSTAGRAM_REDIRECT_URI',       '/auth/' );
+define( 'INSTAGRAM_REDIRECT_URI',       '' );
 
 define( 'INSTAGRAM_MIN_DISTANCE',       5 );
 define( 'INSTAGRAM_MAX_DISTANCE',       5000 );
 define( 'INSTAGRAM_DEFAULT_DISTANCE',   1000 );
 define( 'INSTAGRAM_PHOTO_LOAD_NUMBER',  20 );
+
+define( 'GOOGLE_MAPS_API_KEY',          '' );
 
 $config = array(
     'auth'  => array(
