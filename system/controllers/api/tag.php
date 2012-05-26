@@ -20,6 +20,14 @@ $params = array(
    'max_id'         => $max_id
 );
 
+$tags_closure = function($m){
+    return sprintf( '<a href="/tag/%s/">%s</a>', $m[1], $m[0] );
+};
+
+$mentions_closure = function($m){
+    return sprintf( '<a href="/user/%s/">%s</a>', $m[1], $m[0] );
+};
+
 $media = $tag->getMedia( $params );
 
 $output = array();
@@ -34,7 +42,7 @@ foreach( $media as $m_i => $m ) {
             'thumbnail'         => $m->getThumbnail()->url,
             'user'              => $m->getUser()->getUserName(),
             'created_time'      => $m->getCreatedTime(),
-            'caption'           => $caption ? $caption->getText() : null,
+            'caption'           => $caption ? \Instagram\Helper::parseTagsAndMentions( $caption, $tags_closure, $mentions_closure ) : null,
             'link'              => $m->getLink(),
             'lat'               => $m->getLocation()->getLat(),
             'lng'               => $m->getLocation()->getLng(),

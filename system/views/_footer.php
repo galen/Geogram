@@ -9,7 +9,7 @@
 	</div>
 </div>
 <?php if( !isset( $text_page ) ): ?>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&language=&region=&libraries="></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&api_key=<?php echo GOOGLE_MAPS_API_KEY ?>"></script>
 <script type="text/javascript" src="/public/js/map.js"></script>
 <script type="text/javascript">
 var photo_load_num = <?php echo INSTAGRAM_PHOTO_LOAD_NUMBER ?>;
