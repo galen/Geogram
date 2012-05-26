@@ -36,6 +36,15 @@ if( !count( $media ) ) {
     header( 'Content-type: application/json' );
     die( json_encode( array( 'error' => 'Error loading the photos' ) ) );
 }*/
+
+$tags_closure = function($m){
+    return sprintf( '<a href="/tag/%s/">%s</a>', $m[1], $m[0] );
+};
+
+$mentions_closure = function($m){
+    return sprintf( '<a href="/user/%s/">%s</a>', $m[1], $m[0] );
+};
+
 $output = array();
 $output['photos'] = array();
 $photos = array();
@@ -47,7 +56,7 @@ foreach( $media as $m_i => $m ) {
         'distance'          => $latlng->getDistanceFrom( $m_latlng, 'f', 1 ),
         'user'              => $m->getUser()->getUserName(),
         'created_time'      => $m->getCreatedTime(),
-        'caption'           => $caption ? $caption->getText() : null,
+        'caption'           => $caption ? \Instagram\Helper::parseTagsAndMentions( $caption, $tags_closure, $mentions_closure ) : null,
         'link'              => $m->getLink(),
         'lat'               => $m->getLocation()->getLat(),
         'lng'               => $m->getLocation()->getLng(),
