@@ -31,3 +31,4 @@
   <div id="loader">
       <p>Preloading Images</p>
   </div>
+<?php if ( isset( $title ) ): ?><h1><?php echo $title ?></h1><?php endif; ?>
