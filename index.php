@@ -24,7 +24,7 @@ $app->get('/location/me/', function () use ( $config, $app )  {
     require( DIR_CONTROLLERS . '/location.php' );
 });
 
-$app->get('/location/:location(/:distance(/:location_name/))/', function ( $location, $distance ) use ( $config, $app )  {
+$app->get('/location/:location(/:distance(/:location_name/))/', function ( $location, $distance, $location_name ) use ( $config, $app )  {
     $page = 'location';
     require( DIR_CONTROLLERS . '/location.php' );
 });
